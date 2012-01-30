@@ -7,7 +7,7 @@ open Fake
 let version = "0.7"
 let projectName = "Owin"
 let projectDescription = "OWIN is a .NET HTTP Server abstraction."
-let authors = ["HTTP Abstractions Working Group"]
+let authors = [".NET HTTP Abstractions Working Group"]
   
 let sourceDir = @".\src\"
 let sourceAppDir = sourceDir + @"main\"

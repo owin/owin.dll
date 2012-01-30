@@ -7,8 +7,8 @@
     <owners>@authors@</owners>
     <language>en-US</language>
     <summary>@summary@</summary>
-    <projectUrl>http://orin.org/</projectUrl>
-    <licenseUrl>https://github.com/owin/owin/blob/master/LICENSE.txt</licenseUrl>
+    <projectUrl>http://owin.org/</projectUrl>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.txt</licenseUrl>
     <tags>http owin</tags>
     <dependencies>
     </dependencies>
