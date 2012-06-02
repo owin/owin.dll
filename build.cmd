@@ -1,5 +1,8 @@
-:@echo off
-cls
-".nuget\nuget.exe" install -OutputDirectory packages .\packages.config
-"packages\FAKE.1.62.1\tools\Fake.exe" "build.fsx" %*
-pause
+@echo off
+cd %~dp0
+
+set EnableNuGetPackageRestore=true
+".nuget\NuGet.exe" install Sake -pre -o packages
+for /f "tokens=*" %%G in ('dir /AD /ON /B "packages\Sake.*"') do set __sake__=%%G
+"packages\%__sake__%\tools\Sake.exe" -I src/build -f Sakefile.shade %*
+set __sake__=
