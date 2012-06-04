@@ -1,7 +1,7 @@
 
 var PROJECT='owin'
-var VERSION='0.7'
-var FULL_VERSION='${VERSION}'
+var VERSION='0.8'
+var FULL_VERSION='${VERSION}-ctp1'
 var AUTHORS='.NET HTTP Abstractions Working Group'
 
 var BASE_DIR='${Directory.GetCurrentDirectory()}'
