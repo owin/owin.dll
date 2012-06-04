@@ -5,18 +5,6 @@ using System.Collections.Generic;
 
 namespace Owin
 {
-    public static class OwinConstants
-    {
-        public const string Version = "owin.Version";
-        public const string RequestScheme = "owin.RequestScheme";
-        public const string RequestMethod = "owin.RequestMethod";
-        public const string RequestPathBase = "owin.RequestPathBase";
-        public const string RequestPath = "owin.RequestPath";
-        public const string RequestQueryString = "owin.RequestQueryString";
-        public const string RequestHeaders = "owin.RequestHeaders";
-        public const string RequestBody = "owin.RequestBody";
-    }
-
     public delegate void AppDelegate(
         IDictionary<string, object> env,
         ResultDelegate result,
@@ -24,21 +12,23 @@ namespace Owin
 
     public delegate void ResultDelegate(
         string status,
-        IDictionary<string, IEnumerable<string>> headers,
+        IDictionary<string, string[]> headers,
         BodyDelegate body);
 
     public delegate void BodyDelegate(
-        Func<ArraySegment<byte>, bool> write,
-        Func<Action, bool> flush,
+        Func<ArraySegment<byte>, Action, bool> write,
         Action<Exception> end,
         CancellationToken cancellationToken);
 
-    public delegate Task<Tuple<string /* status */, IDictionary<String, IEnumerable<string>> /* headers */, BodyDelegate /* body */>>
+    public delegate Task<Tuple<string /* status */, IDictionary<String, string[]> /* headers */, BodyDelegate /* body */>>
         AppTaskDelegate(IDictionary<string, object> env);
 
     public interface IAppBuilder
     {
         IAppBuilder Use<TApp>(Func<TApp, TApp> middleware);
         TApp Build<TApp>(Action<IAppBuilder> fork);
+
+        IAppBuilder AddAdapters<TApp1, TApp2>(Func<TApp1, TApp2> adapter1, Func<TApp2, TApp1> adapter2);
+        IDictionary<string, object> Context { get; }
     }
 }
