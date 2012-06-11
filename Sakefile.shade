@@ -9,6 +9,9 @@ var TARGET_DIR='${Path.Combine(BASE_DIR, "target")}'
 var BUILD_DIR='${Path.Combine(TARGET_DIR, "build")}'
 var TEST_DIR='${Path.Combine(TARGET_DIR, "test")}'
 
+var NUGET_SOURCE='https://nuget.org/api/v2/'
+var NUGET_DEPLOY='http://www.myget.org/F/gate/'
+
 
 -// include range of standard general targets. run "sake targets" to display
 use-standard-lifecycle
@@ -18,3 +21,12 @@ use-standard-goals features='nuget'
 
 -// additional work targets are defined below
 
+#release
+  @{
+    // To publish, call `build release deploy`
+    NUGET_DEPLOY = 'https://nuget.org/api/v2/';
+    FULL_VERSION = VERSION;
+  }
+
+#nuget-deploy target='deploy' description='Upload NuGet packages to gallery'
+  nuget-push each='var nupkgFile in Files.Include("target/*.nupkg")' extra='-Source ${NUGET_DEPLOY}'
