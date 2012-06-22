@@ -10,11 +10,12 @@ namespace Owin
         public IDictionary<string, object> Environment;
         public IDictionary<string, string[]> Headers;
         public BodyDelegate Body;
+        public CancellationToken CallDisposed;
     }
 
     public struct ResultParameters
     {
-        public string Status;
+        public int Status;
         public IDictionary<string, string[]> Headers;
         public BodyDelegate Body;
         public IDictionary<string, object> Properties;
