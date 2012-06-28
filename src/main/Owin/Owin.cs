@@ -6,16 +6,16 @@ using System.Collections.Generic;
 
 namespace Owin
 {
-    using AppAction = Action< // Call
+    using AppAction = Func< // Call
         IDictionary<string, object>, // Environment
         IDictionary<string, string[]>, // Headers
         Stream, // Body
-        CancellationToken, // CallCancelled
+        CancellationToken, // CallCompleted
         Task<Tuple< //Result
             IDictionary<string, object>, // Properties
             int, // Status
             IDictionary<string, string[]>, // Headers
-            Action< // CopyTo
+            Func< // CopyTo
                 Stream, // Body
                 CancellationToken, // CopyToCancelled
                 Task>>>>; // Done
@@ -35,9 +35,13 @@ namespace Owin
         public BodyDelegate Body;
     }
 
-    public delegate Task<ResultParameters> AppDelegate(CallParameters call, CancellationToken cancel);
+    public delegate Task<ResultParameters> AppDelegate(
+        CallParameters call, 
+        CancellationToken cancel);
 
-    public delegate Task BodyDelegate(Stream output, CancellationToken cancel);
+    public delegate Task BodyDelegate(
+        Stream output, 
+        CancellationToken cancel);
 
     public interface IAppBuilder
     {
