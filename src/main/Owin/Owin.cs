@@ -10,14 +10,14 @@ namespace Owin
         IDictionary<string, object>, // Environment
         IDictionary<string, string[]>, // Headers
         Stream, // Body
-        CancellationToken, // CallCompleted
+        CancellationToken, // Completed
         Task<Tuple< //Result
             IDictionary<string, object>, // Properties
             int, // Status
             IDictionary<string, string[]>, // Headers
             Func< // CopyTo
                 Stream, // Body
-                CancellationToken, // CopyToCancelled
+                CancellationToken, // Cancel
                 Task>>>>; // Done
 
     public struct CallParameters
@@ -25,6 +25,7 @@ namespace Owin
         public IDictionary<string, object> Environment;
         public IDictionary<string, string[]> Headers;
         public Stream Body;
+        public CancellationToken Completed;
     }
 
     public struct ResultParameters
@@ -36,8 +37,7 @@ namespace Owin
     }
 
     public delegate Task<ResultParameters> AppDelegate(
-        CallParameters call, 
-        CancellationToken cancel);
+        CallParameters call);
 
     public delegate Task BodyDelegate(
         Stream output, 
