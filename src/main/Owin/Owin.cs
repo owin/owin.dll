@@ -9,13 +9,26 @@ namespace Owin
         IDictionary<string, object>, // Environment
         IDictionary<string, string[]>, // Headers
         Stream, // Body
-        Task<Tuple< //Result
+        Task<Tuple< // Result
             IDictionary<string, object>, // Properties
             int, // Status
             IDictionary<string, string[]>, // Headers
             Func< // CopyTo
                 Stream, // Body
                 Task>>>>; // Done
+
+    using ResultTuple = Tuple< //Result
+        IDictionary<string, object>, // Properties
+        int, // Status
+        IDictionary<string, string[]>, // Headers
+        Func< // CopyTo
+            Stream, // Body
+            Task>>; // Done
+
+    using BodyAction = Func< // CopyTo
+        Stream, // Body
+        Task>; // Done
+
 
     public delegate Task<ResultParameters> AppDelegate(
         CallParameters call);
