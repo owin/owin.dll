@@ -47,13 +47,4 @@ namespace Owin
         public IDictionary<string, string[]> Headers;
         public Func<Stream, Task> Body;
     }
-
-    public interface IAppBuilder
-    {
-        IAppBuilder Use<TApp>(Func<TApp, TApp> middleware);
-        TApp Build<TApp>(Action<IAppBuilder> pipeline);
-
-        IAppBuilder AddAdapters<TApp1, TApp2>(Func<TApp1, TApp2> adapter1, Func<TApp2, TApp1> adapter2);
-        IDictionary<string, object> Properties { get; }
-    }
 }

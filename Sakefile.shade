@@ -1,6 +1,6 @@
 
 var PROJECT='owin'
-var VERSION='0.12'
+var VERSION='0.14'
 var FULL_VERSION='${VERSION}-ctp4'
 var AUTHORS='.NET HTTP Abstractions Working Group'
 
@@ -24,9 +24,11 @@ use-standard-goals features='nuget'
 #release
   @{
     // To publish, call `build release deploy`
-    NUGET_DEPLOY = 'https://nuget.org/api/v2/';
+    NUGET_DEPLOY = '';
     FULL_VERSION = VERSION;
   }
 
 #nuget-deploy target='deploy' description='Upload NuGet packages to gallery'
-  nuget-push each='var nupkgFile in Files.Include("target/*.nupkg")' extra='-Source ${NUGET_DEPLOY}'
+  var extra=''
+  set extra='${extra} -Source ${NUGET_DEPLOY}' if='!string.IsNullOrEmpty(NUGET_DEPLOY)'
+  nuget-push each='var nupkgFile in Files.Include("target/*.nupkg")'
