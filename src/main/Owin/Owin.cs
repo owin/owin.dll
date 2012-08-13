@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Owin
 {
-    using AppAction = Func< // Call
+    using AppFunc = Func< // Call
         IDictionary<string, object>, // Environment
         IDictionary<string, string[]>, // Headers
         Stream, // Body
@@ -25,7 +25,7 @@ namespace Owin
             Stream, // Body
             Task>>; // Done
 
-    using BodyAction = Func< // CopyTo
+    using BodyFunc = Func< // CopyTo
         Stream, // Body
         Task>; // Done
 
