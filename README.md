@@ -6,4 +6,4 @@ OWIN defines a standard interface between .NET web servers and web applications.
 
 ### OWIN Related projects
 - [Gate](http://github.com/owin/gate/)
-- [Katana](katanaproject.codeplex.com)
+- [Katana](http://katanaproject.codeplex.com)
