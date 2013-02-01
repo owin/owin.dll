@@ -24,12 +24,12 @@ namespace Owin
     /// <summary>
     /// This interface may be passed to web site's Startup code. It enables the
     /// site author to add middleware to an OWIN pipeline, typically ending with
-    /// the OWIN adapter for the web framework their site is build upon.
+    /// the OWIN adapter for the web framework their site is built on.
     /// </summary>
     public interface IAppBuilder
     {
         /// <summary>
-        /// Contains arbitrary properties which may added, examined, and modified by
+        /// Contains arbitrary properties which may be added, examined, and modified by
         /// components during the startup sequence. 
         /// </summary>
         IDictionary<string, object> Properties { get; }
@@ -66,13 +66,13 @@ namespace Owin
         IAppBuilder Use(object middleware, params object[] args);
 
         /// <summary>
-        /// The Build is called at the point when all of the middleware should be chained
+        /// Build is called at the point when all of the middleware should be chained
         /// together. This is typically done by the hosting component which created the app builder,
         /// and does not need to be called by the startup method if the IAppBuilder is passed in.
         /// </summary>
         /// <param name="returnType">
         /// The Type argument indicates which calling convention should be returned, and
-        /// is typically typeof(<typeparamref name="Func<IDictionary<string,object>, Task>"/>) for the OWIN
+        /// is typically typeof(Func&lt;IDictionary&lt;string, object&gt;, Task&gt;) for the OWIN
         /// calling convention.
         /// </param>
         /// <returns>
