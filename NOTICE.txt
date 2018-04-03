@@ -1,0 +1,3 @@
+OWIN IAppBuilder interface
+Copyright 2012 Louis DeJardin
+Copyright 2012 Chris Ross

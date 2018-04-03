@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.3;net40</TargetFrameworks>
+    <ProjectGuid>{480FD49E-9C69-4FCE-B93A-3E65AFBF82D9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Owin</RootNamespace>
+    <AssemblyName>Owin</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Version>1.1</Version>
+    <Title>OWIN</Title>
+    <Authors>OWIN startup components contributors</Authors>
+    <PackageLicenseUrl>https://github.com/aspnet/owin.dll/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/aspnet/owin.dll/</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>OWIN IAppBuilder startup interface</Description>
+    <PackageTags>OWIN</PackageTags>
+    <RepositoryUrl>https://github.com/aspnet/owin.dll/</RepositoryUrl>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Owin.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="$(ProjectDir)..\Common.targets" />
+</Project>
