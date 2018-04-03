@@ -5,9 +5,8 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Owin</RootNamespace>
     <AssemblyName>Owin</AssemblyName>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <PackageVersion>1.0</PackageVersion>
+    <Version>1.1</Version>
     <Title>OWIN</Title>
     <Authors>OWIN startup components contributors</Authors>
     <PackageLicenseUrl>https://github.com/aspnet/owin.dll/blob/master/LICENSE.txt</PackageLicenseUrl>
